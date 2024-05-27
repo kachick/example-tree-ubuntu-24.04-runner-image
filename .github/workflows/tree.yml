@@ -1,0 +1,21 @@
+name: 🌳
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  tree:
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ['ubuntu-24.04', 'ubuntu-22.04', 'ubuntu-20.04']
+    runs-on: '${{ matrix.os }}'
+    steps:
+      - name: Inspect depednency
+        run: |
+          command -v tree
+          tree --version
+      - run: tree
