@@ -3,6 +3,10 @@ on:
   push:
     branches: [main]
   pull_request:
+  schedule:
+    # Pre version is released in https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20240604.1
+    # It is not yet appeared, so I want to watch.
+    - cron: '1 2,14 * * *'
   workflow_dispatch:
 
 jobs:
